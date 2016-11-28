@@ -44,8 +44,7 @@
     module: cs_instance
     name: PGSQL-MASTER
     display_name: PGSQL-MASTER
-    template: cs_template
-    #template: '{{ cs_template }}' 
+    template: '{{ cs_template }}' 
     service_offering: Micro
     zone: 'CH-DK-2' # or CH-GVA-2
     security_groups:
@@ -59,8 +58,7 @@
     module: cs_instance
     name: PGSQL-SLAVE1
     display_name: PGSQL-SLAVE1
-    #template: '{{ cs_template }}'
-    template: cs_template
+    template: '{{ cs_template }}'
     service_offering: Small
     zone: 'CH-DK-2' # or CH-GVA-2
     security_groups:
