@@ -1,16 +1,20 @@
 ---
 # Install and setup PostgreSQL Streaming Replication
-- name: bootstrap
-  hosts: localhost
-  vars_files:
-    - '../defaults/main.yml'
-  include: 'tasks/bootstrap.yml'
+- hosts: localhost
+  tasks:
+  - name: Import variables for bootstrap playbook
+    include_vars: './defaults/main.yml'
 
-- name: Base setup
-  hosts: pgsql
-  vars_files:
-    - '../defaults/main.yml'
-  include: 'tasks/install.yml'
+  - name: bootstrap
+    include: 'tasks/bootstrap.yml'
+
+- hosts: pgsql
+  tasks:
+  - name: Import variables for install playbook
+    include_vars: './defaults/main.yml'
+
+  - name: Base setup
+    include: 'tasks/install.yml'
 
 - name: setup master
   hosts: pgmaster
