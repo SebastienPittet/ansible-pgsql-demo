@@ -64,5 +64,8 @@ aws_endpoint: "https+path://sos.exo.io:443"
 # Cloudstack template to use
 cs_template: "Linux Ubuntu 14.04 LTS 64-bit 10G Disk (2016-10-20-85bb6c)"
 
+# Cloudstack default size of instance
+cs_size: "Micro"
+
 # Deploy test flask app
 deploy_flask_testapp: False
