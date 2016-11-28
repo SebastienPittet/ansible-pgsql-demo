@@ -1,5 +1,7 @@
 ---
 # Install and setup PostgreSQL Streaming Replication
+# This playbook contains 5 plays.
+
 - hosts: localhost
   tasks:
   - name: Import variables for bootstrap playbook
