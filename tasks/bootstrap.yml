@@ -67,6 +67,13 @@
     ssh_key: demo
   register: pgslave
 
+# Ensure an instance is running
+- name: Ensure PGSQL-MASTER is started 
+  local_action: cs_instance name=PGSQL-MASTER state=started
+
+- name: Ensure PGSQL-SLAVE1 is started
+  local_action: cs_instance name=PGSQL-SLAVE1 state=started
+
 - name: "Bootstrap: assing IP to the inventory"
   add_host: hostname={{ pgmaster.default_ip }} groups=pgsql,pgmaster
 
