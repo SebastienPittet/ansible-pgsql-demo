@@ -9,6 +9,7 @@
     update_cache: yes
     cache_valid_time: 86400
   with_items:
+    - build-essential
     - postgresql
     - postgresql-contrib
     - postgresql-client
@@ -20,11 +21,21 @@
     - daemontools
     - libffi-dev
     - lzop
+    - virtualenv
 
 - name: "Install: Upgrade pip"
   pip: name={{item}} extra_args=--upgrade
   with_items:
     - pip
+
+- name: copy Wal-e requirements file on remote location
+  copy: src='../defaults/wal-e.requirements.txt' dest='$HOME/requirements.txt'
+
+- name: Install wal-e in a virtualenv (and requirements)
+  pip: 
+    requirements: '$HOME/requirements.txt'
+    virtualenv: $HOME/venvs/wal-e
+    virtualenv_python: python3.6
 
 - name: "Install: install WAL-E"
   pip: name=wal-e extra_args="{{ pip_install_args }}"

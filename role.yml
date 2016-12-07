@@ -3,6 +3,7 @@
 # This playbook contains 5 plays.
 
 - hosts: localhost
+  gather_facts: true
   tasks:
   - name: Import variables for bootstrap playbook
     include_vars: './defaults/main.yml'
