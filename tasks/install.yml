@@ -22,6 +22,7 @@
     - libffi-dev
     - lzop
     - virtualenv
+    - pv
 
 - name: "Install: Upgrade pip"
   pip: name={{item}} extra_args=--upgrade
